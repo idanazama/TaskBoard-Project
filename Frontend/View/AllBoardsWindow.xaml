@@ -1,0 +1,54 @@
+﻿<Window x:Class="Frontend.View.AllBoardsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Frontend.View"
+        mc:Ignorable="d"
+        Title="AllBoardsWindow" Height="450" Width="800" Closing="Window_Closing">
+    <Grid>
+
+        <Button HorizontalAlignment="Left" Click="Logout_Click" FontSize="20" Height="35" Margin="658,17,0,0" VerticalAlignment="Top" Width="96">
+            <Grid Height="26" Width="65">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Logout"  Grid.Column="0" FontSize="20" VerticalAlignment="Top" FontWeight="Bold" Height="30" Margin="-1,0,0,0"/>
+            </Grid>
+        </Button>
+        <TextBlock HorizontalAlignment="Center" Margin="0,24,0,0" TextWrapping="Wrap" Text="My Boards" FontSize="30"  FontWeight="Bold" VerticalAlignment="Top" Width="160" Height="40"/>
+        <Grid HorizontalAlignment="Center" Height="285" Margin="0,67,0,0" VerticalAlignment="Top" Width="680">
+            <ListBox ItemsSource="{Binding BoardsList}" SelectedItem="{Binding Path=SelectedBoard, Mode=OneWayToSource}" HorizontalContentAlignment="Stretch">
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate >
+                        <Border BorderBrush="Black" BorderThickness="1">
+                            <StackPanel Orientation="Vertical" Height="30">
+                                <TextBlock Text="{Binding}" FontSize="20"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        <Button HorizontalAlignment="Left" Click="EnterBoard_Click" FontSize="20" Margin="625,357,0,0" VerticalAlignment="Top" Height="41" Width="129">
+            <Grid Width="109" Height="32">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="36.297"/>
+                    <RowDefinition Height="3.703"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Enter Board"   Grid.Column="0" FontSize="20" VerticalAlignment="Center" FontWeight="Bold" Height="34" Grid.ColumnSpan="2" Margin="0,0,2,0" Width="NaN"/>
+            </Grid>
+        </Button>
+        <Button  Content="Delete Board" HorizontalAlignment="Left" Margin="353,360,0,0" VerticalAlignment="Top" Height="38" Width="142" Click="DeleteBoard_Click"/>
+        <Button  Content="Create New Board" HorizontalAlignment="Left" Margin="124,360,0,0" VerticalAlignment="Top" Height="38" Width="142" Click="CreateNewBoard_Click"/>
+    </Grid>
+</Window>
